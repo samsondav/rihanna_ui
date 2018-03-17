@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Enqueued at</th>
+      <th scope="col">Reason</th>
+      <th scope="col">Job</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for job <- @jobs do %>
+      <tr>
+        <td><%= job.enqueued_at %></td>
+        <td>dunno</td>
+        <td><%= inspect(job.mfa) %></td>
+        <td><%= link("Retry", to: "/jobs/#{job.id}?action=retry", method: :post) %></th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

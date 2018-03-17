@@ -16,7 +16,7 @@
     </tr>
     <tr>
       <th scope="row">Failed</th>
-      <td><%= @failed %></td>
+      <td><a href="/failed"><%= @failed %></a></td>
     </tr>
   </tbody>
 </table>

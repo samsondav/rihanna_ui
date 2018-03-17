@@ -36,12 +36,27 @@
                 <a class="nav-link" href="#">Working</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Failed</a>
+                <a class="nav-link" href="/failed">Failed</a>
               </li>
             </ul>
           </div>
         </nav>
       </header>
+      <%
+        success = get_flash(@conn, :success)
+        error = get_flash(@conn, :error)
+      %>
+      <%= if success do %>
+        <div class="alert alert-success" role="alert">
+          <%= success %>
+        </div>
+      <% end %>
+
+      <%= if error do %>
+        <div class="alert alert-danger" role="alert">
+          <%= error %>
+        </div>
+      <% end %>
 
       <main role="main">
         <%= render @view_module, @view_template, assigns %>

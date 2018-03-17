@@ -16,7 +16,10 @@ defmodule HyperUiWeb.Router do
   scope "/", HyperUiWeb do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/", PageController, :overview
+    get "/failed", PageController, :failed
+
+    post "/jobs/:id", JobsController, :mutate
   end
 
   # Other scopes may use custom stacks.

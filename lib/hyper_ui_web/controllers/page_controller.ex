@@ -1,7 +1,8 @@
 defmodule HyperUiWeb.PageController do
   use HyperUiWeb, :controller
+  require Ecto.Query, as: Query
 
-  def index(conn, _params) do
+  def overview(conn, _params) do
     jobs = Hyper.Job
     |> Hyper.Repo.all()
     |> Enum.group_by(&(&1.state))
@@ -9,6 +10,14 @@ defmodule HyperUiWeb.PageController do
     in_progress = Enum.count(jobs["in_progress"] || [])
     failed = Enum.count(jobs["failed"] || [])
 
-    render conn, "index.html", enqueued: enqueued, in_progress: in_progress, failed: failed
+    render conn, "overview.html", enqueued: enqueued, in_progress: in_progress, failed: failed
+  end
+
+  def failed(conn, _params) do
+    failed_jobs = Hyper.Job
+    |> Query.where(state: "failed")
+    |> Hyper.Repo.all()
+
+    render conn, "failed.html", jobs: failed_jobs
   end
 end
