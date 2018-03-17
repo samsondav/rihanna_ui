@@ -18,6 +18,7 @@ defmodule HyperUiWeb.Router do
 
     get "/", PageController, :overview
     get "/failed", PageController, :failed
+    get "/enqueued", PageController, :enqueued
 
     post "/jobs/:id", JobsController, :mutate
   end

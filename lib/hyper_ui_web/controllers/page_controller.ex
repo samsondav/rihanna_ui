@@ -13,6 +13,15 @@ defmodule HyperUiWeb.PageController do
     render conn, "overview.html", enqueued: enqueued, in_progress: in_progress, failed: failed
   end
 
+  def enqueued(conn, _params) do
+    enqueued_jobs = Hyper.Job
+
+    |> Query.where(state: "ready_to_run")
+    |> Hyper.Repo.all()
+
+    render conn, "enqueued.html", jobs: enqueued_jobs
+  end
+
   def failed(conn, _params) do
     failed_jobs = Hyper.Job
     |> Query.where(state: "failed")
