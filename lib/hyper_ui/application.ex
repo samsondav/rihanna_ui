@@ -9,7 +9,7 @@ defmodule HyperUi.Application do
     # Define workers and child supervisors to be supervised
     children = [
       # Start the Ecto repository
-      {Hyper.Supervisor, [name: Hyper.Supervisor]},
+      {Hyper.Repo, [name: Hyper.Repo]},
       # Start the endpoint when the application starts
       supervisor(HyperUiWeb.Endpoint, []),
       # Start your own worker by calling: HyperUi.Worker.start_link(arg1, arg2, arg3)
