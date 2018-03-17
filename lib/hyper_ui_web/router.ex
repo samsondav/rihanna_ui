@@ -17,8 +17,9 @@ defmodule HyperUiWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :overview
-    get "/failed", PageController, :failed
     get "/enqueued", PageController, :enqueued
+    get "/in_progress", PageController, :in_progress
+    get "/failed", PageController, :failed
 
     post "/jobs/:id", JobsController, :mutate
   end

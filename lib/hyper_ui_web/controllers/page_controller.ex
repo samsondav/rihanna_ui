@@ -15,11 +15,18 @@ defmodule HyperUiWeb.PageController do
 
   def enqueued(conn, _params) do
     enqueued_jobs = Hyper.Job
-
     |> Query.where(state: "ready_to_run")
     |> Hyper.Repo.all()
 
     render conn, "enqueued.html", jobs: enqueued_jobs
+  end
+
+  def in_progress(conn, _) do
+    in_progress_jobs = Hyper.Job
+    |> Query.where(state: "in_progress")
+    |> Hyper.Repo.all()
+
+    render conn, "in_progress.html", jobs: in_progress_jobs
   end
 
   def failed(conn, _params) do

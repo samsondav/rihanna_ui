@@ -8,11 +8,11 @@
   <tbody>
     <tr>
       <th scope="row">Enqueued</th>
-      <td><%= @enqueued %></td>
+      <td><a href="/enqueued"><%= @enqueued %></td>
     </tr>
     <tr>
       <th scope="row">In progress</th>
-      <td><%= @in_progress %></td>
+      <td><a href="/failed"><%= @in_progress %></td>
     </tr>
     <tr>
       <th scope="row">Failed</th>

@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Enqueued at</th>
+      <th scope="col">Job</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for job <- @jobs do %>
+      <tr>
+        <td><%= job.enqueued_at %></td>
+        <td><%= inspect(job.mfa) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
