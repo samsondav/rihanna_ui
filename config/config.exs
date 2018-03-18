@@ -23,12 +23,7 @@ config :logger, :console,
   metadata: [:user_id]
 
 config :sombrero, Sombrero.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "nested",
-  password: "nested",
-  database: "sombrero_db",
-  hostname: "127.0.0.1",
-  port: 54321
+  adapter: Ecto.Adapters.Postgres
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
