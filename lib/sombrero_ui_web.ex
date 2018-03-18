@@ -40,6 +40,7 @@ defmodule SombreroUiWeb do
       import SombreroUiWeb.Router.Helpers
       import SombreroUiWeb.ErrorHelpers
       import SombreroUiWeb.Gettext
+      import SombreroUiWeb.RenderingHelpers
     end
   end
 

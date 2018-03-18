@@ -1,4 +1,8 @@
 <table class="table">
+  <%= case @jobs do %>
+  <% [] -> %>
+  <div class="no-jobs">No enqueued jobs!</div>
+  <% jobs -> %>
   <thead>
     <tr>
       <th scope="col">Enqueued at</th>
@@ -6,11 +10,12 @@
     </tr>
   </thead>
   <tbody>
-    <%= for job <- @jobs do %>
+  <%= for job <- jobs do %>
       <tr>
         <td><%= job.enqueued_at %></td>
-        <td><%= inspect(job.mfa) %></td>
+        <td><%= render_mfa(job.mfa) %></td>
       </tr>
+    <% end %>
     <% end %>
   </tbody>
 </table>
