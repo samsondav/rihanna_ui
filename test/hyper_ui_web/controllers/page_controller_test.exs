@@ -1,5 +1,5 @@
-defmodule HyperUiWeb.PageControllerTest do
-  use HyperUiWeb.ConnCase
+defmodule SombreroUiWeb.PageControllerTest do
+  use SombreroUiWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

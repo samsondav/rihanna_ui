@@ -6,15 +6,15 @@
 use Mix.Config
 
 # General application configuration
-config :hyper_ui,
-  ecto_repos: [HyperUi.Repo]
+config :sombrero_ui,
+  ecto_repos: [SombreroUi.Repo]
 
 # Configures the endpoint
-config :hyper_ui, HyperUiWeb.Endpoint,
+config :sombrero_ui, SombreroUiWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "aWZOvWfKl/FqR2bRCD7kIMQxbe8eUqpA9RjbGZE6ZuEyO2zXwWTL9PimLNVVxzeG",
-  render_errors: [view: HyperUiWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: HyperUi.PubSub,
+  render_errors: [view: SombreroUiWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: SombreroUi.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
@@ -22,11 +22,11 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:user_id]
 
-config :hyper, Hyper.Repo,
+config :sombrero, Sombrero.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "nested",
   password: "nested",
-  database: "hyper_db",
+  database: "sombrero_db",
   hostname: "127.0.0.1",
   port: 54321
 

@@ -1,5 +1,5 @@
-defmodule HyperUiWeb.Router do
-  use HyperUiWeb, :router
+defmodule SombreroUiWeb.Router do
+  use SombreroUiWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,7 +13,7 @@ defmodule HyperUiWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", HyperUiWeb do
+  scope "/", SombreroUiWeb do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :overview
@@ -25,7 +25,7 @@ defmodule HyperUiWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", HyperUiWeb do
+  # scope "/api", SombreroUiWeb do
   #   pipe_through :api
   # end
 end

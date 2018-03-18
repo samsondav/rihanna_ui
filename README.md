@@ -1,4 +1,4 @@
-# HyperUi
+# SombreroUi
 
 To start your Phoenix server:
 

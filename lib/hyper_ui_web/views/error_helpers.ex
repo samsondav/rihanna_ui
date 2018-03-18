@@ -1,4 +1,4 @@
-defmodule HyperUiWeb.ErrorHelpers do
+defmodule SombreroUiWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -36,9 +36,9 @@ defmodule HyperUiWeb.ErrorHelpers do
     # should be written to the errors.po file. The :count option is
     # set by Ecto and indicates we should also apply plural rules.
     if count = opts[:count] do
-      Gettext.dngettext(HyperUiWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(SombreroUiWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(HyperUiWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(SombreroUiWeb.Gettext, "errors", msg, opts)
     end
   end
 end

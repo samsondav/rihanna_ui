@@ -1,11 +1,11 @@
-defmodule HyperUiWeb.Gettext do
+defmodule SombreroUiWeb.Gettext do
   @moduledoc """
   A module providing Internationalization with a gettext-based API.
 
   By using [Gettext](https://hexdocs.pm/gettext),
   your module gains a set of macros for translations, for example:
 
-      import HyperUiWeb.Gettext
+      import SombreroUiWeb.Gettext
 
       # Simple translation
       gettext "Here is the string to translate"
@@ -20,5 +20,5 @@ defmodule HyperUiWeb.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :hyper_ui
+  use Gettext, otp_app: :sombrero_ui
 end

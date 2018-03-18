@@ -1,4 +1,4 @@
-defmodule HyperUiWeb.ConnCase do
+defmodule SombreroUiWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -19,18 +19,18 @@ defmodule HyperUiWeb.ConnCase do
     quote do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
-      import HyperUiWeb.Router.Helpers
+      import SombreroUiWeb.Router.Helpers
 
       # The default endpoint for testing
-      @endpoint HyperUiWeb.Endpoint
+      @endpoint SombreroUiWeb.Endpoint
     end
   end
 
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(HyperUi.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(SombreroUi.Repo)
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(HyperUi.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(SombreroUi.Repo, {:shared, self()})
     end
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end

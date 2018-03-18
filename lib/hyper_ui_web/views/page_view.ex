@@ -1,3 +1,3 @@
-defmodule HyperUiWeb.PageView do
-  use HyperUiWeb, :view
+defmodule SombreroUiWeb.PageView do
+  use SombreroUiWeb, :view
 end

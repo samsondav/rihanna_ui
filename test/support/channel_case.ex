@@ -1,4 +1,4 @@
-defmodule HyperUiWeb.ChannelCase do
+defmodule SombreroUiWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,15 +21,15 @@ defmodule HyperUiWeb.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint HyperUiWeb.Endpoint
+      @endpoint SombreroUiWeb.Endpoint
     end
   end
 
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(HyperUi.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(SombreroUi.Repo)
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(HyperUi.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(SombreroUi.Repo, {:shared, self()})
     end
     :ok
   end

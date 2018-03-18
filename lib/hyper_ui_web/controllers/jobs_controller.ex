@@ -1,10 +1,10 @@
-defmodule HyperUiWeb.JobsController do
-  use HyperUiWeb, :controller
+defmodule SombreroUiWeb.JobsController do
+  use SombreroUiWeb, :controller
 
   def mutate(conn, %{"id" => id, "action" => action}) do
     case action do
       "retry" ->
-        case Hyper.Job.retry_failed(id) do
+        case Sombrero.Job.retry_failed(id) do
           {:ok, :retried} ->
             conn |> put_flash(:success, "Job was retried!")
           {:error, :job_not_found} ->

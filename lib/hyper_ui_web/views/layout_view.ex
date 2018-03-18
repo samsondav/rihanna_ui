@@ -1,3 +1,3 @@
-defmodule HyperUiWeb.LayoutView do
-  use HyperUiWeb, :view
+defmodule SombreroUiWeb.LayoutView do
+  use SombreroUiWeb, :view
 end

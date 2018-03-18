@@ -1,14 +1,14 @@
-defmodule HyperUiWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :hyper_ui
+defmodule SombreroUiWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :sombrero_ui
 
-  socket "/socket", HyperUiWeb.UserSocket
+  socket "/socket", SombreroUiWeb.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :hyper_ui, gzip: false,
+    at: "/", from: :sombrero_ui, gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
@@ -34,10 +34,10 @@ defmodule HyperUiWeb.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   plug Plug.Session,
     store: :cookie,
-    key: "_hyper_ui_key",
+    key: "_sombrero_ui_key",
     signing_salt: "SqqOfpyw"
 
-  plug HyperUiWeb.Router
+  plug SombreroUiWeb.Router
 
   @doc """
   Callback invoked for dynamically configuring the endpoint.

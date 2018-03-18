@@ -1,12 +1,12 @@
-defmodule HyperUiWeb do
+defmodule SombreroUiWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use HyperUiWeb, :controller
-      use HyperUiWeb, :view
+      use SombreroUiWeb, :controller
+      use SombreroUiWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,17 +19,17 @@ defmodule HyperUiWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: HyperUiWeb
+      use Phoenix.Controller, namespace: SombreroUiWeb
       import Plug.Conn
-      import HyperUiWeb.Router.Helpers
-      import HyperUiWeb.Gettext
+      import SombreroUiWeb.Router.Helpers
+      import SombreroUiWeb.Gettext
     end
   end
 
   def view do
     quote do
-      use Phoenix.View, root: "lib/hyper_ui_web/templates",
-                        namespace: HyperUiWeb
+      use Phoenix.View, root: "lib/sombrero_ui_web/templates",
+                        namespace: SombreroUiWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 2, view_module: 1]
@@ -37,9 +37,9 @@ defmodule HyperUiWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import HyperUiWeb.Router.Helpers
-      import HyperUiWeb.ErrorHelpers
-      import HyperUiWeb.Gettext
+      import SombreroUiWeb.Router.Helpers
+      import SombreroUiWeb.ErrorHelpers
+      import SombreroUiWeb.Gettext
     end
   end
 
@@ -54,7 +54,7 @@ defmodule HyperUiWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import HyperUiWeb.Gettext
+      import SombreroUiWeb.Gettext
     end
   end
 

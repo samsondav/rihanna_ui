@@ -1,3 +1,3 @@
-defmodule HyperUiWeb.LayoutViewTest do
-  use HyperUiWeb.ConnCase, async: true
+defmodule SombreroUiWeb.LayoutViewTest do
+  use SombreroUiWeb.ConnCase, async: true
 end

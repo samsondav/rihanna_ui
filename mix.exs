@@ -1,9 +1,9 @@
-defmodule HyperUi.Mixfile do
+defmodule SombreroUi.Mixfile do
   use Mix.Project
 
   def project do
     [
-      app: :hyper_ui,
+      app: :sombrero_ui,
       version: "0.0.1",
       elixir: "~> 1.4",
       elixirc_paths: elixirc_paths(Mix.env),
@@ -19,7 +19,7 @@ defmodule HyperUi.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {HyperUi.Application, []},
+      mod: {SombreroUi.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -41,7 +41,7 @@ defmodule HyperUi.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:hyper, path: "/Users/sam/code/elixir/hyper"}
+      {:sombrero, path: "/Users/sam/code/elixir/sombrero"}
     ]
   end
 

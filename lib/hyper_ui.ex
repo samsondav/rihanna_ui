@@ -1,6 +1,6 @@
-defmodule HyperUi do
+defmodule SombreroUi do
   @moduledoc """
-  HyperUi keeps the contexts that define your domain
+  SombreroUi keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

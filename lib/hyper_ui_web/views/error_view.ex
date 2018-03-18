@@ -1,5 +1,5 @@
-defmodule HyperUiWeb.ErrorView do
-  use HyperUiWeb, :view
+defmodule SombreroUiWeb.ErrorView do
+  use SombreroUiWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.
