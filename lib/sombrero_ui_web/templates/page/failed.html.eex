@@ -13,7 +13,11 @@
         <td><%= job.enqueued_at %></td>
         <td>dunno</td>
         <td><%= inspect(job.mfa) %></td>
-        <td><%= link("Retry", to: "/jobs/#{job.id}?action=retry", method: :post) %></th>
+        <td>
+          <%= link("Retry", to: "/jobs/#{job.id}?action=retry", method: :post) %>
+          |
+          <%= link("Delete", to: "/jobs/#{job.id}?action=delete", method: :post, data: [confirm: "Deleted tasks cannot be recovered. Really delete it?"]) %>
+        </td>
       </tr>
     <% end %>
   </tbody>

@@ -1,2 +1,6 @@
 /* This file is for your main application css. */
 
+.pane {
+  padding-top: 64px;
+}
+
