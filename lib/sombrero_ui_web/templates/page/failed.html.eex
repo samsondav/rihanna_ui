@@ -6,7 +6,9 @@
   <thead>
     <tr>
       <th scope="col">Enqueued at</th>
-      <th scope="col">Reason</th>
+      <th scope="col">Failed at</th>
+      <th scope="col">Run duration</th>
+      <th scope="col">Failure reason</th>
       <th scope="col">Job</th>
       <th scope="col"></th>
     </tr>
@@ -14,8 +16,10 @@
   <tbody>
   <%= for job <- jobs do %>
     <tr>
-      <td><%= job.enqueued_at %></td>
-      <td>dunno</td>
+      <td><%= job.enqueued_at |> render_datetime %></td>
+      <td><%= job.failed_at |> render_datetime %></td>
+      <td><%= DateTime.diff(job.failed_at, job.enqueued_at) %> seconds</td>
+      <td><%= job.fail_reason |> text_to_html %></td>
       <td><%= render_mfa(job.mfa) %></td>
       <td>
         <%= link("Retry", to: "/jobs/#{job.id}?action=retry", method: :post) %>

@@ -46,8 +46,6 @@ defmodule SombreroUiWeb.Endpoint do
   configuration should be loaded from the system environment.
   """
   def init(_key, config) do
-    IO.inspect "init MOFO"
-    IO.puts "port was #{inspect System.get_env("PORT")}"
     port = System.get_env("PORT") || 4000
     {:ok, Keyword.put(config, :http, [port: port])}
   end

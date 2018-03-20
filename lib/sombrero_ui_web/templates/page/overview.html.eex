@@ -8,15 +8,15 @@
   <tbody>
     <tr>
       <th scope="row">Enqueued</th>
-      <td><a href="/enqueued"><%= @enqueued %></td>
+      <td><a href="/enqueued" class="text-dark"><%= @enqueued %></td>
     </tr>
     <tr>
       <th scope="row">In progress</th>
-      <td><a href="/failed"><%= @in_progress %></td>
+      <td><a href="/in_progress" class="text-dark"><%= @in_progress %></td>
     </tr>
-    <tr>
+    <tr class="text-danger">
       <th scope="row">Failed</th>
-      <td><a href="/failed"><%= @failed %></a></td>
+      <td><a href="/failed" class="text-danger"><%= @failed %></a></td>
     </tr>
   </tbody>
 </table>

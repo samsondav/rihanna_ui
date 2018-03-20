@@ -12,7 +12,7 @@
   <tbody>
   <%= for job <- jobs do %>
       <tr>
-        <td><%= job.enqueued_at %></td>
+        <td><%= job.enqueued_at |> render_datetime %></td>
         <td><%= render_mfa(job.mfa) %></td>
       </tr>
     <% end %>
