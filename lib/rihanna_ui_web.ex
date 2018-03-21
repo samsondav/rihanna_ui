@@ -1,12 +1,12 @@
-defmodule RihannaUiWeb do
+defmodule RihannaUIWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use RihannaUiWeb, :controller
-      use RihannaUiWeb, :view
+      use RihannaUIWeb, :controller
+      use RihannaUIWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,17 +19,17 @@ defmodule RihannaUiWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: RihannaUiWeb
+      use Phoenix.Controller, namespace: RihannaUIWeb
       import Plug.Conn
-      import RihannaUiWeb.Router.Helpers
-      import RihannaUiWeb.Gettext
+      import RihannaUIWeb.Router.Helpers
+      import RihannaUIWeb.Gettext
     end
   end
 
   def view do
     quote do
       use Phoenix.View, root: "lib/rihanna_ui_web/templates",
-                        namespace: RihannaUiWeb
+                        namespace: RihannaUIWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 2, view_module: 1]
@@ -37,10 +37,10 @@ defmodule RihannaUiWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import RihannaUiWeb.Router.Helpers
-      import RihannaUiWeb.ErrorHelpers
-      import RihannaUiWeb.Gettext
-      import RihannaUiWeb.RenderingHelpers
+      import RihannaUIWeb.Router.Helpers
+      import RihannaUIWeb.ErrorHelpers
+      import RihannaUIWeb.Gettext
+      import RihannaUIWeb.RenderingHelpers
     end
   end
 
@@ -55,7 +55,7 @@ defmodule RihannaUiWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import RihannaUiWeb.Gettext
+      import RihannaUIWeb.Gettext
     end
   end
 

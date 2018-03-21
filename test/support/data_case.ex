@@ -1,4 +1,4 @@
-defmodule RihannaUi.DataCase do
+defmodule RihannaUI.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -16,20 +16,20 @@ defmodule RihannaUi.DataCase do
 
   using do
     quote do
-      alias RihannaUi.Repo
+      alias RihannaUI.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import RihannaUi.DataCase
+      import RihannaUI.DataCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(RihannaUi.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(RihannaUI.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(RihannaUi.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(RihannaUI.Repo, {:shared, self()})
     end
 
     :ok

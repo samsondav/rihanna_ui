@@ -1,6 +1,6 @@
-defmodule RihannaUi do
+defmodule RihannaUI do
   @moduledoc """
-  RihannaUi keeps the contexts that define your domain
+  RihannaUI keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

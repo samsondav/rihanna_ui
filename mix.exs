@@ -1,4 +1,4 @@
-defmodule RihannaUi.Mixfile do
+defmodule RihannaUI.Mixfile do
   use Mix.Project
 
   def project do
@@ -19,7 +19,7 @@ defmodule RihannaUi.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {RihannaUi.Application, []},
+      mod: {RihannaUI.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

@@ -1,5 +1,5 @@
-defmodule RihannaUiWeb.PageControllerTest do
-  use RihannaUiWeb.ConnCase
+defmodule RihannaUIWeb.PageControllerTest do
+  use RihannaUIWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

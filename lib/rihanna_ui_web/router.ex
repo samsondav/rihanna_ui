@@ -1,5 +1,5 @@
-defmodule RihannaUiWeb.Router do
-  use RihannaUiWeb, :router
+defmodule RihannaUIWeb.Router do
+  use RihannaUIWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,7 +13,7 @@ defmodule RihannaUiWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", RihannaUiWeb do
+  scope "/", RihannaUIWeb do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :overview
@@ -25,7 +25,7 @@ defmodule RihannaUiWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", RihannaUiWeb do
+  # scope "/api", RihannaUIWeb do
   #   pipe_through :api
   # end
 end

@@ -1,7 +1,7 @@
-defmodule RihannaUiWeb.Endpoint do
+defmodule RihannaUIWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :rihanna_ui
 
-  socket "/socket", RihannaUiWeb.UserSocket
+  socket "/socket", RihannaUIWeb.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -37,7 +37,7 @@ defmodule RihannaUiWeb.Endpoint do
     key: "_rihanna_ui_key",
     signing_salt: "SqqOfpyw"
 
-  plug RihannaUiWeb.Router
+  plug RihannaUIWeb.Router
 
   @doc """
   Callback invoked for dynamically configuring the endpoint.

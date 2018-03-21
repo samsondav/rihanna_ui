@@ -1,5 +1,5 @@
-defmodule RihannaUiWeb.JobsController do
-  use RihannaUiWeb, :controller
+defmodule RihannaUIWeb.JobsController do
+  use RihannaUIWeb, :controller
 
   def mutate(conn, %{"id" => id, "action" => action}) do
     case action do
@@ -12,7 +12,7 @@ defmodule RihannaUiWeb.JobsController do
         end
       "delete" ->
         import Ecto.Query
-        case RihannaUi.Repo.delete_all(
+        case RihannaUI.Repo.delete_all(
           from(
             Rihanna.Job,
             where: [id: ^id]

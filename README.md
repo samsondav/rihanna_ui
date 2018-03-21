@@ -1,4 +1,4 @@
-# RihannaUi
+# RihannaUI
 
 To start your Phoenix server:
 

@@ -1,4 +1,4 @@
-defmodule RihannaUiWeb.ErrorHelpers do
+defmodule RihannaUIWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -36,9 +36,9 @@ defmodule RihannaUiWeb.ErrorHelpers do
     # should be written to the errors.po file. The :count option is
     # set by Ecto and indicates we should also apply plural rules.
     if count = opts[:count] do
-      Gettext.dngettext(RihannaUiWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(RihannaUIWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(RihannaUiWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(RihannaUIWeb.Gettext, "errors", msg, opts)
     end
   end
 end

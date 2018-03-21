@@ -7,17 +7,17 @@ use Mix.Config
 
 # General application configuration
 config :rihanna_ui,
-  ecto_repos: [RihannaUi.Repo]
+  ecto_repos: [RihannaUI.Repo]
 
-config :rihanna_ui, RihannaUi.Repo,
+config :rihanna_ui, RihannaUI.Repo,
   adapter: Ecto.Adapters.Postgres
 
 # Configures the endpoint
-config :rihanna_ui, RihannaUiWeb.Endpoint,
+config :rihanna_ui, RihannaUIWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "aWZOvWfKl/FqR2bRCD7kIMQxbe8eUqpA9RjbGZE6ZuEyO2zXwWTL9PimLNVVxzeG",
-  render_errors: [view: RihannaUiWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: RihannaUi.PubSub,
+  render_errors: [view: RihannaUIWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: RihannaUI.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger

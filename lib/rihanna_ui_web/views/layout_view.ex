@@ -1,3 +1,3 @@
-defmodule RihannaUiWeb.LayoutView do
-  use RihannaUiWeb, :view
+defmodule RihannaUIWeb.LayoutView do
+  use RihannaUIWeb, :view
 end

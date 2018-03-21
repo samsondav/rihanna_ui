@@ -1,5 +1,5 @@
-defmodule RihannaUiWeb.ErrorView do
-  use RihannaUiWeb, :view
+defmodule RihannaUIWeb.ErrorView do
+  use RihannaUIWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.
