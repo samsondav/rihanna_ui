@@ -1,4 +1,4 @@
-defmodule SombreroUiWeb.ChannelCase do
+defmodule RihannaUiWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,15 +21,15 @@ defmodule SombreroUiWeb.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint SombreroUiWeb.Endpoint
+      @endpoint RihannaUiWeb.Endpoint
     end
   end
 
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(SombreroUi.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(RihannaUi.Repo)
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(SombreroUi.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(RihannaUi.Repo, {:shared, self()})
     end
     :ok
   end

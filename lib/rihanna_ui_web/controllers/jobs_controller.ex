@@ -1,10 +1,10 @@
-defmodule SombreroUiWeb.JobsController do
-  use SombreroUiWeb, :controller
+defmodule RihannaUiWeb.JobsController do
+  use RihannaUiWeb, :controller
 
   def mutate(conn, %{"id" => id, "action" => action}) do
     case action do
       "retry" ->
-        case Sombrero.Job.retry_failed(id) do
+        case Rihanna.Job.retry_failed(id) do
           {:ok, :retried} ->
             conn |> put_flash(:success, "Job was retried!")
           {:error, :job_not_found} ->
@@ -12,9 +12,9 @@ defmodule SombreroUiWeb.JobsController do
         end
       "delete" ->
         import Ecto.Query
-        case Sombrero.Repo.delete_all(
+        case Rihanna.Repo.delete_all(
           from(
-            Sombrero.Job,
+            Rihanna.Job,
             where: [id: ^id]
           )
         ) do

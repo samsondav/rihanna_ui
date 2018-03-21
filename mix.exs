@@ -1,9 +1,9 @@
-defmodule SombreroUi.Mixfile do
+defmodule RihannaUi.Mixfile do
   use Mix.Project
 
   def project do
     [
-      app: :sombrero_ui,
+      app: :rihanna_ui,
       version: "0.0.1",
       elixir: "~> 1.4",
       elixirc_paths: elixirc_paths(Mix.env),
@@ -19,7 +19,7 @@ defmodule SombreroUi.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {SombreroUi.Application, []},
+      mod: {RihannaUi.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -41,8 +41,8 @@ defmodule SombreroUi.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:sombrero, path: "/Users/sam/code/elixir/sombrero"}
-      # {:sombrero, "~> 0.1.0"}
+      {:rihanna, path: "/Users/sam/code/elixir/rihanna"}
+      # {:rihanna, "~> 0.1.0"}
     ]
   end
 

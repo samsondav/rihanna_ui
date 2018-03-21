@@ -1,3 +1,3 @@
-defmodule SombreroUiWeb.LayoutViewTest do
-  use SombreroUiWeb.ConnCase, async: true
+defmodule RihannaUiWeb.LayoutViewTest do
+  use RihannaUiWeb.ConnCase, async: true
 end

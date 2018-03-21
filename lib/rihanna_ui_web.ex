@@ -1,12 +1,12 @@
-defmodule SombreroUiWeb do
+defmodule RihannaUiWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use SombreroUiWeb, :controller
-      use SombreroUiWeb, :view
+      use RihannaUiWeb, :controller
+      use RihannaUiWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,17 +19,17 @@ defmodule SombreroUiWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: SombreroUiWeb
+      use Phoenix.Controller, namespace: RihannaUiWeb
       import Plug.Conn
-      import SombreroUiWeb.Router.Helpers
-      import SombreroUiWeb.Gettext
+      import RihannaUiWeb.Router.Helpers
+      import RihannaUiWeb.Gettext
     end
   end
 
   def view do
     quote do
-      use Phoenix.View, root: "lib/sombrero_ui_web/templates",
-                        namespace: SombreroUiWeb
+      use Phoenix.View, root: "lib/rihanna_ui_web/templates",
+                        namespace: RihannaUiWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 2, view_module: 1]
@@ -37,10 +37,10 @@ defmodule SombreroUiWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import SombreroUiWeb.Router.Helpers
-      import SombreroUiWeb.ErrorHelpers
-      import SombreroUiWeb.Gettext
-      import SombreroUiWeb.RenderingHelpers
+      import RihannaUiWeb.Router.Helpers
+      import RihannaUiWeb.ErrorHelpers
+      import RihannaUiWeb.Gettext
+      import RihannaUiWeb.RenderingHelpers
     end
   end
 
@@ -55,7 +55,7 @@ defmodule SombreroUiWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import SombreroUiWeb.Gettext
+      import RihannaUiWeb.Gettext
     end
   end
 

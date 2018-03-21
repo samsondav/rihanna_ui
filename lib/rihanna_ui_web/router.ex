@@ -1,5 +1,5 @@
-defmodule SombreroUiWeb.Router do
-  use SombreroUiWeb, :router
+defmodule RihannaUiWeb.Router do
+  use RihannaUiWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,7 +13,7 @@ defmodule SombreroUiWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", SombreroUiWeb do
+  scope "/", RihannaUiWeb do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :overview
@@ -25,7 +25,7 @@ defmodule SombreroUiWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", SombreroUiWeb do
+  # scope "/api", RihannaUiWeb do
   #   pipe_through :api
   # end
 end

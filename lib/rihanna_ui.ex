@@ -1,6 +1,6 @@
-defmodule SombreroUi do
+defmodule RihannaUi do
   @moduledoc """
-  SombreroUi keeps the contexts that define your domain
+  RihannaUi keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

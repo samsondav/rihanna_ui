@@ -1,4 +1,4 @@
-# SombreroUi
+# RihannaUi
 
 To start your Phoenix server:
 

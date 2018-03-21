@@ -1,5 +1,5 @@
-defmodule SombreroUiWeb.ErrorView do
-  use SombreroUiWeb, :view
+defmodule RihannaUiWeb.ErrorView do
+  use RihannaUiWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

@@ -1,4 +1,4 @@
-defmodule SombreroUiWeb.ConnCase do
+defmodule RihannaUiWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -19,18 +19,18 @@ defmodule SombreroUiWeb.ConnCase do
     quote do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
-      import SombreroUiWeb.Router.Helpers
+      import RihannaUiWeb.Router.Helpers
 
       # The default endpoint for testing
-      @endpoint SombreroUiWeb.Endpoint
+      @endpoint RihannaUiWeb.Endpoint
     end
   end
 
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(SombreroUi.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(RihannaUi.Repo)
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(SombreroUi.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(RihannaUi.Repo, {:shared, self()})
     end
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end

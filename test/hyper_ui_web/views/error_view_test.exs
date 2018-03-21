@@ -1,16 +1,16 @@
-defmodule SombreroUiWeb.ErrorViewTest do
-  use SombreroUiWeb.ConnCase, async: true
+defmodule RihannaUiWeb.ErrorViewTest do
+  use RihannaUiWeb.ConnCase, async: true
 
   # Bring render/3 and render_to_string/3 for testing custom views
   import Phoenix.View
 
   test "renders 404.html" do
-    assert render_to_string(SombreroUiWeb.ErrorView, "404.html", []) ==
+    assert render_to_string(RihannaUiWeb.ErrorView, "404.html", []) ==
            "Not Found"
   end
 
   test "renders 500.html" do
-    assert render_to_string(SombreroUiWeb.ErrorView, "500.html", []) ==
+    assert render_to_string(RihannaUiWeb.ErrorView, "500.html", []) ==
            "Internal Server Error"
   end
 end

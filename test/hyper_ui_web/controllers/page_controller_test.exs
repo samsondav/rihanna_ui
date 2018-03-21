@@ -1,5 +1,5 @@
-defmodule SombreroUiWeb.PageControllerTest do
-  use SombreroUiWeb.ConnCase
+defmodule RihannaUiWeb.PageControllerTest do
+  use RihannaUiWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

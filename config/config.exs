@@ -6,15 +6,15 @@
 use Mix.Config
 
 # General application configuration
-config :sombrero_ui,
-  ecto_repos: [SombreroUi.Repo]
+config :rihanna_ui,
+  ecto_repos: [RihannaUi.Repo]
 
 # Configures the endpoint
-config :sombrero_ui, SombreroUiWeb.Endpoint,
+config :rihanna_ui, RihannaUiWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "aWZOvWfKl/FqR2bRCD7kIMQxbe8eUqpA9RjbGZE6ZuEyO2zXwWTL9PimLNVVxzeG",
-  render_errors: [view: SombreroUiWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: SombreroUi.PubSub,
+  render_errors: [view: RihannaUiWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: RihannaUi.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
@@ -22,7 +22,7 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:user_id]
 
-config :sombrero, Sombrero.Repo,
+config :rihanna, Rihanna.Repo,
   adapter: Ecto.Adapters.Postgres
 
 # Import environment specific config. This must remain at the bottom

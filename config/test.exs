@@ -2,7 +2,7 @@ use Mix.Config
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :sombrero_ui, SombreroUiWeb.Endpoint,
+config :rihanna_ui, RihannaUiWeb.Endpoint,
   http: [port: 4001],
   server: false
 
@@ -10,10 +10,10 @@ config :sombrero_ui, SombreroUiWeb.Endpoint,
 config :logger, level: :warn
 
 # Configure your database
-config :sombrero_ui, SombreroUi.Repo,
+config :rihanna_ui, RihannaUi.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
-  database: "sombrero_ui_test",
+  database: "rihanna_ui_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

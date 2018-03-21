@@ -1,4 +1,4 @@
-defmodule SombreroUiWeb.RenderingHelpers do
+defmodule RihannaUiWeb.RenderingHelpers do
   def render_mfa({mod, fun, args}) do
     args_string = args
     |> Enum.map(&inspect/1)

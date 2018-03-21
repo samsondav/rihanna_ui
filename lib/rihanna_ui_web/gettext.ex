@@ -1,11 +1,11 @@
-defmodule SombreroUiWeb.Gettext do
+defmodule RihannaUiWeb.Gettext do
   @moduledoc """
   A module providing Internationalization with a gettext-based API.
 
   By using [Gettext](https://hexdocs.pm/gettext),
   your module gains a set of macros for translations, for example:
 
-      import SombreroUiWeb.Gettext
+      import RihannaUiWeb.Gettext
 
       # Simple translation
       gettext "Here is the string to translate"
@@ -20,5 +20,5 @@ defmodule SombreroUiWeb.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :sombrero_ui
+  use Gettext, otp_app: :rihanna_ui
 end
