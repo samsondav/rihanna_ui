@@ -9,7 +9,7 @@ defmodule RihannaUi.Application do
     # Define workers and child supervisors to be supervised
     children = [
       # Start the Ecto repository
-      {Rihanna.Repo, [name: Rihanna.Repo] ++ database_opts()},
+      {RihannaUi.Repo, [name: RihannaUi.Repo] ++ database_opts()},
       # Start the endpoint when the application starts
       supervisor(RihannaUiWeb.Endpoint, []),
       # Start your own worker by calling: RihannaUi.Worker.start_link(arg1, arg2, arg3)

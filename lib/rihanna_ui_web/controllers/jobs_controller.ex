@@ -12,7 +12,7 @@ defmodule RihannaUiWeb.JobsController do
         end
       "delete" ->
         import Ecto.Query
-        case Rihanna.Repo.delete_all(
+        case RihannaUi.Repo.delete_all(
           from(
             Rihanna.Job,
             where: [id: ^id]

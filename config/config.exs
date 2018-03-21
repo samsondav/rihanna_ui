@@ -9,6 +9,9 @@ use Mix.Config
 config :rihanna_ui,
   ecto_repos: [RihannaUi.Repo]
 
+config :rihanna_ui, RihannaUi.Repo,
+  adapter: Ecto.Adapters.Postgres
+
 # Configures the endpoint
 config :rihanna_ui, RihannaUiWeb.Endpoint,
   url: [host: "localhost"],
@@ -21,9 +24,6 @@ config :rihanna_ui, RihannaUiWeb.Endpoint,
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:user_id]
-
-config :rihanna, Rihanna.Repo,
-  adapter: Ecto.Adapters.Postgres
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
