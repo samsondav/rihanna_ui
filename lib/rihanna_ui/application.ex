@@ -31,8 +31,8 @@ defmodule RihannaUI.Application do
 
   defp database_opts() do
     [
-      username: "nested",
-      password: "nested",
+      username: System.get_env("DB_USERNAME") || "postgres",
+      password: System.get_env("DB_PASSWORD") || "postgres",
       database: System.get_env("DB_DATABASE") || "rihanna_db",
       hostname: System.get_env("DB_HOSTNAME") || "127.0.0.1",
       port: System.get_env("DB_PORT") || 54321
