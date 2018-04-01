@@ -1,2 +1,2 @@
-defmodule RihannaUi do
+defmodule RihannaUI do
 end

@@ -1,4 +1,4 @@
-defmodule RihannaUi.WWW.NotFoundPage do
+defmodule RihannaUI.WWW.NotFoundPage do
   use Raxx.Server
 
   require EEx

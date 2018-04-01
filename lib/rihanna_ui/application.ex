@@ -1,4 +1,4 @@
-defmodule RihannaUi.Application do
+defmodule RihannaUI.Application do
   @moduledoc false
 
   use Application
@@ -10,12 +10,12 @@ defmodule RihannaUi.Application do
     secure_options = [port: 8443, cleartext: :false, certfile: certificate_path(), keyfile: certificate_key_path()]
 
     children = [
-      Supervisor.child_spec({RihannaUi.WWW, [config, cleartext_options]}, id: :www_cleartext),
-      Supervisor.child_spec({RihannaUi.WWW, [config, secure_options]}, id: :www_secure),
-      
+      Supervisor.child_spec({RihannaUI.WWW, [config, cleartext_options]}, id: :www_cleartext),
+      Supervisor.child_spec({RihannaUI.WWW, [config, secure_options]}, id: :www_secure),
+
     ]
 
-    opts = [strategy: :one_for_one, name: RihannaUi.Supervisor]
+    opts = [strategy: :one_for_one, name: RihannaUI.Supervisor]
     Supervisor.start_link(children, opts)
   end
 

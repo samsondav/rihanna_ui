@@ -1,5 +1,5 @@
-defmodule RihannaUiTest do
+defmodule RihannaUITest do
   use ExUnit.Case
-  doctest RihannaUi
+  doctest RihannaUI
 
 end

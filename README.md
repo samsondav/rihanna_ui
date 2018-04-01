@@ -1,4 +1,4 @@
-# RihannaUi
+# RihannaUI
 
 - Install dependencies with `mix deps.get`
 - Start your service with `iex -S mix`

@@ -1,7 +1,7 @@
-defmodule RihannaUi.WWW.HomePageTest do
+defmodule RihannaUI.WWW.HomePageTest do
   use ExUnit.Case
 
-  alias RihannaUi.WWW.HomePage
+  alias RihannaUI.WWW.HomePage
 
   test "returns the Raxx.Kit home page" do
     request = Raxx.request(:GET, "/")

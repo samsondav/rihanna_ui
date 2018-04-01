@@ -1,4 +1,4 @@
-defmodule RihannaUi.Mixfile do
+defmodule RihannaUI.Mixfile do
   use Mix.Project
 
   def project do
@@ -12,15 +12,18 @@ defmodule RihannaUi.Mixfile do
 
   def application do
     [extra_applications: [:logger],
-      mod: {RihannaUi.Application, []}]
+      mod: {RihannaUI.Application, []}]
   end
 
   defp deps do
     [
-      {:ace, "~> 0.15.10"},
-      
-      {:raxx_static, "~> 0.6.0"},
+      {:ace, ">= 0.0.0"},
+
+      {:raxx_static, ">= 0.0.0"},
       {:exsync, "~> 0.2.0", only: :dev},
+      {:rihanna, ">= 0.0.0"},
+      {:postgrex, ">= 0.0.0"},
+      {:ecto, ">= 0.0.0"}
     ]
   end
 end

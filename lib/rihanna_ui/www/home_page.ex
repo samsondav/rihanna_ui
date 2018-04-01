@@ -1,4 +1,4 @@
-defmodule RihannaUi.WWW.HomePage do
+defmodule RihannaUI.WWW.HomePage do
   use Raxx.Server
 
   require EEx
