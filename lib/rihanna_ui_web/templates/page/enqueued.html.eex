@@ -5,6 +5,7 @@
   <% jobs -> %>
   <thead>
     <tr>
+      <th scope="col">ID</th>
       <th scope="col">Enqueued at</th>
       <th scope="col">Job</th>
     </tr>
@@ -12,8 +13,9 @@
   <tbody>
   <%= for job <- jobs do %>
       <tr>
+        <td><%= job.id %></td>
         <td><%= job.enqueued_at |> render_datetime %></td>
-        <td><%= render_mfa(job.mfa) %></td>
+        <td><%= render_term(job.term) %></td>
       </tr>
     <% end %>
     <% end %>

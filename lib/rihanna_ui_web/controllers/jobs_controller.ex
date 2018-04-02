@@ -4,7 +4,7 @@ defmodule RihannaUIWeb.JobsController do
   def mutate(conn, %{"id" => id, "action" => action}) do
     case action do
       "retry" ->
-        case Rihanna.Job.retry_failed(id) do
+        case Rihanna.retry(id) do
           {:ok, :retried} ->
             conn |> put_flash(:success, "Job was retried!")
           {:error, :job_not_found} ->

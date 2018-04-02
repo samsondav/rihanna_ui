@@ -1,9 +1,13 @@
 defmodule RihannaUIWeb.RenderingHelpers do
-  def render_mfa({mod, fun, args}) do
+  def render_term({mod, fun, args}) do
     args_string = args
     |> Enum.map(&inspect/1)
     |> Enum.join(", ")
     "#{mod}.#{fun}(#{args_string})"
+  end
+
+  def render_term({mod, arg}) do
+    "#{mod}.perform(#{inspect(arg)})"
   end
 
   def render_datetime(%{year: year, month: month, day: day, hour: hour, minute: minute, second: second, zone_abbr: zone_abbr}) do

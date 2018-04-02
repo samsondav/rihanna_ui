@@ -8,12 +8,12 @@ defmodule RihannaUI.Application do
 
     # Define workers and child supervisors to be supervised
     children = [
-      # Start the Ecto repository
       {RihannaUI.Repo, [name: RihannaUI.Repo] ++ database_opts()},
-      # Start the endpoint when the application starts
+      %{
+        id: Rihanna.Job.Postgrex,
+        start: {Postgrex, :start_link, [Keyword.put(database_opts(), :name, Rihanna.Job.Postgrex)]}
+      },
       supervisor(RihannaUIWeb.Endpoint, []),
-      # Start your own worker by calling: RihannaUI.Worker.start_link(arg1, arg2, arg3)
-      # worker(RihannaUI.Worker, [arg1, arg2, arg3]),
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
