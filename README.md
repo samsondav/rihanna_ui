@@ -4,6 +4,8 @@ A beautiful UI for [Rihanna](https://github.com/samphilipd/rihanna).
 
 You can run it from Docker Hub - [samphilipd/rihanna_ui](https://hub.docker.com/r/samphilipd/rihanna_ui/).
 
+![Rihanna UI screenshot](docs/rihanna_ui_screenshot.png)
+
 ## Configuration
 
 You must pass in environment configuration so that RihannaUI can connect
