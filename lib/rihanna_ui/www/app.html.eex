@@ -18,7 +18,7 @@
 
     <%# End bootstrap CDNs %>
 
-    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <link rel="stylesheet" href="/public/main.css">
   </head>
 
   <body>
@@ -30,7 +30,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <%= for {label, path} <- [{"Overview", "/"}, {"Enqueued", "/enqueued"}, {"In progress", "/in_progress"}, {"Failed", "/failed"}] do %>
-              <li class="nav-item<%= if @conn.request_path == path, do: " active", else: nil %>">
+              <li class="nav-item<%= if @path == path, do: " active", else: nil %>">
                 <a class="nav-link" href="<%= path %>"><%= label %><span class="sr-only">(current)</span></a>
               </li>
             <% end %>
@@ -41,8 +41,8 @@
     <div class="container">
       <div class="pane">
         <%
-        success = get_flash(@conn, :success)
-        error = get_flash(@conn, :error)
+        success = false
+        error = false # TODO: Make flash work
         %>
         <%= if success do %>
         <div class="alert alert-success" role="alert">
@@ -57,11 +57,11 @@
         <% end %>
 
         <main role="main">
-          <%= render @view_module, @view_template, assigns %>
+          <%= @template %>
         </main>
       </div>
 
     </div> <!-- /container -->
-    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <script src="/public/main.js"></script>
   </body>
 </html>

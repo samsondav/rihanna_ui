@@ -21,7 +21,7 @@ defmodule RihannaUI.Mixfile do
 
       {:raxx_static, ">= 0.0.0"},
       {:exsync, "~> 0.2.0", only: :dev},
-      {:rihanna, ">= 0.0.0"},
+      {:rihanna, path: "/Users/sam/code/elixir/rihanna"},
       {:postgrex, ">= 0.0.0"},
       {:ecto, ">= 0.0.0"}
     ]

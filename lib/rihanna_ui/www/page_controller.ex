@@ -4,48 +4,36 @@ defmodule RihannaUI.WWW.PageController do
   require EEx
   require Ecto.Query, as: Query
 
-  template = Path.join(__DIR__, "./home_page.html.eex")
-  EEx.function_from_file(:defp, :overview, template, [:assigns])
+  @templates ~w(app overview)
+
+  app = Path.join(__DIR__, "./app.html.eex")
+  EEx.function_from_file(:defp, :app, app, [:assigns])
+
+  overview = Path.join(__DIR__, "./overview.html.eex")
+  EEx.function_from_file(:defp, :overview, overview, [:assigns])
 
   @impl Raxx.Server
-  def handle_request(_request, _state) do
+  def handle_request(%{method: :GET, path: []}, _) do
+    enqueued = Enum.count(RihannaUI.Job.enqueued())
+    in_progress = Enum.count(RihannaUI.Job.in_progress())
+    failed = Enum.count(RihannaUI.Job.failed())
+
+    template = overview(%{enqueued: enqueued, in_progress: in_progress, failed: failed})
+
     response(:ok)
     |> set_header("content-type", "text/html")
-    |> set_body(view(%{}))
+    |> set_body(app(%{template: template, path: "/overview"}))
   end
 
-  def handle_request(%{method: :GET, path: []}, _) do
-    jobs = Rihanna.Job
-    |> RihannaUI.Repo.all()
-    |> Enum.group_by(&(&1.state))
-    enqueued = Enum.count(jobs["ready_to_run"] || [])
-    in_progress = Enum.count(jobs["in_progress"] || [])
-    failed = Enum.count(jobs["failed"] || [])
+  # def enqueued(conn, _params) do
+  #   render conn, "enqueued.html", jobs: enqueued_jobs
+  # end
 
-    render conn, "overview.html", enqueued: enqueued, in_progress: in_progress, failed: failed
-  end
+  # def in_progress(conn, _) do
+  #   render conn, "in_progress.html", jobs: in_progress_jobs
+  # end
 
-  def enqueued(conn, _params) do
-    enqueued_jobs = Rihanna.Job
-    |> Query.where(state: "ready_to_run")
-    |> RihannaUI.Repo.all()
-
-    render conn, "enqueued.html", jobs: enqueued_jobs
-  end
-
-  def in_progress(conn, _) do
-    in_progress_jobs = Rihanna.Job
-    |> Query.where(state: "in_progress")
-    |> RihannaUI.Repo.all()
-
-    render conn, "in_progress.html", jobs: in_progress_jobs
-  end
-
-  def failed(conn, _params) do
-    failed_jobs = Rihanna.Job
-    |> Query.where(state: "failed")
-    |> RihannaUI.Repo.all()
-
-    render conn, "failed.html", jobs: failed_jobs
-  end
+  # def failed(conn, _params) do
+  #   render conn, "failed.html", jobs: failed_jobs
+  # end
 end
