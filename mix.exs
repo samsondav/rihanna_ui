@@ -18,7 +18,7 @@ defmodule RihannaUI.Mixfile do
   defp deps do
     [
       {:ace, ">= 0.0.0"},
-
+      {:phoenix_html, "~> 2.11"},
       {:raxx_static, ">= 0.0.0"},
       {:exsync, "~> 0.2.0", only: :dev},
       {:rihanna, path: "/Users/sam/code/elixir/rihanna"},

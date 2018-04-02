@@ -1,0 +1,35 @@
+<table class="table">
+  <%= case @jobs do %>
+  <% [] -> %>
+  <div class="no-jobs">No failed jobs!</div>
+  <% jobs -> %>
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Enqueued at</th>
+      <th scope="col">Failed at</th>
+      <th scope="col">Run duration</th>
+      <th scope="col">Failure reason</th>
+      <th scope="col">Job</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+  <%= for job <- jobs do %>
+    <tr>
+      <td><%= job.id %></td>
+      <td><%= job.enqueued_at |> render_datetime %></td>
+      <td><%= job.failed_at |> render_datetime %></td>
+      <td><%= DateTime.diff(job.failed_at, job.enqueued_at) %> seconds</td>
+      <td><%= job.fail_reason |> text_to_html %></td>
+      <td><%= render_term(job.term) %></td>
+      <td>
+        <%= link("Retry", to: "/jobs/#{job.id}?action=retry", method: :post)  %>
+        |
+        <%= link("Delete", to: "/jobs/#{job.id}?action=delete", method: :post, data: [confirm: "Deleted tasks cannot be recovered. Really delete it?"])  %>
+      </td>
+    </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>

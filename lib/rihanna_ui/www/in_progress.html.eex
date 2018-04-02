@@ -1,0 +1,23 @@
+<table class="table">
+  <%= case @jobs do %>
+  <% [] -> %>
+  <div class="no-jobs">No jobs are in progress!</div>
+  <% jobs -> %>
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Enqueued at</th>
+      <th scope="col">Job</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for job <- jobs do %>
+      <tr>
+        <td><%= job.id %></td>
+        <td><%= job.enqueued_at |> render_datetime %></td>
+        <td><%= render_term(job.term) %></td>
+      </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>

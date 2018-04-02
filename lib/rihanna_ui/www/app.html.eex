@@ -18,7 +18,7 @@
 
     <%# End bootstrap CDNs %>
 
-    <link rel="stylesheet" href="/public/main.css">
+    <link rel="stylesheet" href="/main.css">
   </head>
 
   <body>
@@ -29,7 +29,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <%= for {label, path} <- [{"Overview", "/"}, {"Enqueued", "/enqueued"}, {"In progress", "/in_progress"}, {"Failed", "/failed"}] do %>
+            <%= for {label, path} <- [{"Overview", []}, {"Enqueued", ["enqueued"]}, {"In progress", ["in_progress"]}, {"Failed", ["failed"]}] do %>
               <li class="nav-item<%= if @path == path, do: " active", else: nil %>">
                 <a class="nav-link" href="<%= path %>"><%= label %><span class="sr-only">(current)</span></a>
               </li>
@@ -40,19 +40,15 @@
     </header>
     <div class="container">
       <div class="pane">
-        <%
-        success = false
-        error = false # TODO: Make flash work
-        %>
-        <%= if success do %>
+        <%= if Map.has_key?(assigns, :banner_success) do %>
         <div class="alert alert-success" role="alert">
-          <%= success %>
+          <%= @banner_success %>
         </div>
         <% end %>
 
-        <%= if error do %>
+        <%= if Map.has_key?(assigns, :banner_error) do %>
         <div class="alert alert-danger" role="alert">
-          <%= error %>
+          <%= @banner_error %>
         </div>
         <% end %>
 
@@ -62,6 +58,6 @@
       </div>
 
     </div> <!-- /container -->
-    <script src="/public/main.js"></script>
+    <script src="/main.js"></script>
   </body>
 </html>
