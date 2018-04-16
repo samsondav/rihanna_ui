@@ -6,7 +6,8 @@ RUN mix local.hex --force && \
     mix hex.info
 
 WORKDIR /app
-ENV MIX_ENV dev
+ENV MIX_ENV prod
+ENV PORT 80
 
 RUN apt-get -qq update
 RUN apt-get -y -q install curl
@@ -21,5 +22,7 @@ RUN cd assets && brunch build --production
 RUN mix deps.get
 RUN mix compile
 RUN mix phx.digest
+
+EXPOSE $PORT
 
 CMD ["mix", "phx.server"]
