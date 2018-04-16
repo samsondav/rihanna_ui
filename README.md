@@ -6,6 +6,12 @@ You can run it from Docker Hub - [samphilipd/rihanna_ui](https://hub.docker.com/
 
 ![Rihanna UI screenshot](docs/rihanna_ui_screenshot.png)
 
+## Building docker image
+
+You shouldn't need to do this since you can just download it from dockerhub, but here is an example of how to build your own docker image for production:
+
+`docker build . --build-arg MIX_ENV=prod -t rihanna_ui:latest`
+
 ## Configuration
 
 You must pass in environment configuration so that RihannaUI can connect

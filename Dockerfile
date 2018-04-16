@@ -20,7 +20,6 @@ RUN cd assets && brunch build --production
 
 RUN mix deps.get
 RUN mix compile
-
 RUN mix phx.digest
 
 CMD ["mix", "phx.server"]
