@@ -10,7 +10,8 @@ config :rihanna_ui,
   ecto_repos: [RihannaUI.Repo]
 
 config :rihanna_ui, RihannaUI.Repo,
-  adapter: Ecto.Adapters.Postgres
+  adapter: Ecto.Adapters.Postgres,
+  pool_size: 1
 
 # Configures the endpoint
 config :rihanna_ui, RihannaUIWeb.Endpoint,
