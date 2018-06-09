@@ -10,7 +10,7 @@ ENV MIX_ENV prod
 ENV PORT 80
 
 RUN apt-get -qq update
-RUN apt-get -y -q install curl
+RUN apt-get -y -q install curl gnupg
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get -y -q install nodejs
 RUN npm install -g brunch
