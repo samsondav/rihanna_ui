@@ -21,6 +21,7 @@ defmodule RihannaUIWeb.Router do
     get "/in_progress", PageController, :in_progress
     get "/failed", PageController, :failed
 
+    post "/jobs", JobsController, :mutate
     post "/jobs/:id", JobsController, :mutate
   end
 

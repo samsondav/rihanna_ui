@@ -26,4 +26,11 @@ defmodule RihannaUIWeb.JobsController do
     end
     |> redirect(to: "/failed")
   end
+
+  def mutate(conn, %{"action" => "retry_all"}) do
+    RihannaUI.Job.failed()
+    |> Enum.map(&Rihanna.retry(&1.id))
+
+    conn |> put_flash(:success, "Retrying all jobs.")
+  end
 end
