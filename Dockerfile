@@ -27,6 +27,6 @@ RUN mix phx.digest
 
 ENV PORT 8080
 
-EXPOSE $PORT
+EXPOSE 80 8080
 
 CMD ["mix", "phx.server"]
