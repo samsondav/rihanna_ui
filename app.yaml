@@ -14,3 +14,6 @@ env_variables:
   DB_PORT: "5432"
   DB_USERNAME: nest
   PG_DATABASE_SOCKET_DIR: "/cloudsql/steadfast-range-119414:europe-west2:nested"
+
+beta_settings:
+  cloud_sql_instances: steadfast-range-119414:europe-west2:nested

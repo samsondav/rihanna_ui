@@ -46,13 +46,13 @@ workflows:
     jobs:
       - build_gae_production_image:
           context: org-gae-protected
-          filters:
-            branches:
-              only: master
+          # filters:
+          #   branches:
+          #     only: master
       - deploy_to_gae:
           context: org-gae-protected
           requires:
             - build_gae_production_image
-          filters:
-            branches:
-              only: master
+          # filters:
+          #   branches:
+          #     only: master
