@@ -25,6 +25,7 @@ RUN mix deps.get
 RUN mix compile
 RUN mix phx.digest
 
+ARG PORT
 ENV PORT 8080
 
 EXPOSE 80 8080
