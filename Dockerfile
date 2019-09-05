@@ -7,7 +7,9 @@ RUN mix local.hex --force && \
 
 WORKDIR /app
 ENV MIX_ENV prod
-ENV PORT 80
+
+ARG DB_PASSWORD
+ENV DB_PASSWORD ${DB_PASSWORD}
 
 RUN apt-get -qq update
 RUN apt-get -y -q install curl gnupg
@@ -22,6 +24,8 @@ RUN cd assets && brunch build --production
 RUN mix deps.get
 RUN mix compile
 RUN mix phx.digest
+
+ENV PORT 8080
 
 EXPOSE $PORT
 

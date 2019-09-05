@@ -1,0 +1,58 @@
+version: 2
+experimental:
+  notify:
+    branches:
+      only:
+        - master
+
+jobs:
+  build_gae_production_image:
+    docker:
+      - image: eu.gcr.io/steadfast-range-119414/gcloud-ruby
+        auth:
+          username: _json_key
+          password: $GOOGLE_AUTH
+    steps:
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - checkout
+      - run:
+          name: Build docker image, push to GCR
+          command: |
+            git clone git@github.com:nested-tech/gcp-setup.git /root/gcp-setup
+
+            BUILD_OPTS="--build-arg DB_PASSWORD=${DB_PASSWORD}"
+            /root/gcp-setup/gae/bin/build_and_push.rb --name=rihanna-ui --docker-build-args="${BUILD_OPTS}"
+
+  deploy_to_gae:
+    docker:
+      - image: eu.gcr.io/steadfast-range-119414/gcloud-ruby
+        auth:
+          username: _json_key
+          password: $GOOGLE_AUTH
+    steps:
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - checkout
+      - run:
+          command: |
+            git clone git@github.com:nested-tech/gcp-setup.git /root/gcp-setup
+            /root/gcp-setup/gae/bin/deploy.rb --name=rihanna-ui
+          no_output_timeout: 1800
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build_gae_production_image:
+          context: org-gae-protected
+          filters:
+            branches:
+              only: master
+      - deploy_to_gae:
+          context: org-gae-protected
+          requires:
+            - build_gae_production_image
+          filters:
+            branches:
+              only: master

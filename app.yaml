@@ -1,0 +1,15 @@
+runtime: custom
+env: flex
+service: rihanna-ui
+
+manual_scaling:
+  instances: 1
+resources:
+  cpu: 1
+  memory_gb: 1
+
+env_variables:
+  DB_HOSTNAME: 127.0.0.1
+  DB_DATABASE: nest
+  DB_PORT: "5432"
+  DB_USERNAME: nest
