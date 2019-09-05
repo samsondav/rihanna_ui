@@ -35,6 +35,7 @@ defmodule RihannaUI.Application do
       password: System.get_env("DB_PASSWORD") || "postgres",
       database: System.get_env("DB_DATABASE") || "rihanna_db",
       hostname: System.get_env("DB_HOSTNAME") || "127.0.0.1",
+      socket_dir: System.get_env("PG_DATABASE_SOCKET_DIR") || "",
       port: System.get_env("DB_PORT") || 54321
     ]
   end
