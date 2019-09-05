@@ -8,6 +8,8 @@ RUN mix local.hex --force && \
 WORKDIR /app
 ENV MIX_ENV prod
 
+ENV PORT 8080
+
 ARG DB_PASSWORD
 ENV DB_PASSWORD ${DB_PASSWORD}
 
@@ -25,9 +27,6 @@ RUN mix deps.get
 RUN mix compile
 RUN mix phx.digest
 
-ARG PORT
-ENV PORT 8080
-
-EXPOSE 80 8080
+EXPOSE 8080
 
 CMD ["mix", "phx.server"]
