@@ -13,13 +13,14 @@ config :rihanna_ui, RihannaUI.Repo,
   adapter: Ecto.Adapters.Postgres,
   pool_size: 1
 
+config :phoenix, :json_library, Jason
+
 # Configures the endpoint
 config :rihanna_ui, RihannaUIWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "aWZOvWfKl/FqR2bRCD7kIMQxbe8eUqpA9RjbGZE6ZuEyO2zXwWTL9PimLNVVxzeG",
   render_errors: [view: RihannaUIWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: RihannaUI.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  pubsub_server: RihannaUI.PubSub
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -28,4 +29,4 @@ config :logger, :console,
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
-import_config "#{Mix.env}.exs"
+import_config "#{Mix.env()}.exs"
