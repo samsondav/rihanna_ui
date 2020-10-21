@@ -1,7 +1,7 @@
 defmodule RihannaUIWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :rihanna_ui
 
-  socket "/socket", RihannaUIWeb.UserSocket
+  socket "/socket", MyAppWeb.UserSocket, websocket: true
 
   # Serve at "/" the static files from "priv/static" directory.
   #

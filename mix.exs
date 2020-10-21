@@ -42,7 +42,8 @@ defmodule RihannaUI.Mixfile do
       {:jason, "~> 1.2.2"},
       {:phoenix_live_reload, "~> 1.2.4", only: :dev},
       {:gettext, "~> 0.18.2"},
-      {:cowboy, "~> 2.7"},
+      {:plug_cowboy, "~> 2.0"},
+      {:plug, "~> 1.7"},
       {:rihanna, ">= 2.2.0"}
     ]
   end
