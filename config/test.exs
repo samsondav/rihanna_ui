@@ -12,8 +12,5 @@ config :logger, level: :warn
 # Configure your database
 config :rihanna_ui, RihannaUI.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "rihanna_ui_test",
-  hostname: "localhost",
+  url: System.get_env("DATABASE_URL", "postgres://localhost/rihanna_ui_test"),
   pool: Ecto.Adapters.SQL.Sandbox
