@@ -21,6 +21,10 @@ config :rihanna_ui, RihannaUIWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
+# Configure your database
+config :rihanna_ui, RihannaUI.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: System.get_env("DATABASE_URL", "postgres://localhost/violet_dev")
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key

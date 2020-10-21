@@ -11,7 +11,6 @@ config :rihanna_ui,
 
 config :rihanna_ui, RihannaUI.Repo,
   adapter: Ecto.Adapters.Postgres,
-  database: System.get_env("DATABASE", "violet_dev"),
   pool_size: 1
 
 # Configures the endpoint

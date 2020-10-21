@@ -12,7 +12,7 @@ defmodule RihannaUI.Application do
       {Phoenix.PubSub, [name: RihannaUI.PubSub, adapter: Phoenix.PubSub.PG2]},
       %{
         id: Rihanna.Job.Postgrex,
-        start: {Postgrex, :start_link, [Keyword.put(database_opts(), :name, Rihanna.Job.Postgrex)]}
+        start: {Postgrex, :start_link, [Keyword.put(postgrex_config(), :name, Rihanna.Job.Postgrex)]}
       },
       supervisor(RihannaUIWeb.Endpoint, []),
     ]
@@ -31,6 +31,22 @@ defmodule RihannaUI.Application do
   end
 
   defp database_opts() do
-    []
+    Application.get_env(:rihanna_ui, RihannaUI.Repo)
+  end
+
+  defp postgrex_config do
+    uri =
+      database_opts()
+      |> Keyword.get(:url)
+      |> URI.parse
+
+    security = String.split(uri.userinfo, ":")
+
+    [
+      hostname: uri.host,
+      database: String.replace(uri.path, "/", ""),
+      username: Enum.at(security, 0),
+      password: Enum.at(security, 1)
+    ]
   end
 end
