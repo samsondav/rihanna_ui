@@ -18,4 +18,8 @@ defmodule RihannaUI.ETF do
     {:ok, mfa}
   end
   def cast(_), do: :error
+
+  def embed_as(_format), do: :self
+
+  def equal?(x, y), do: x == y
 end

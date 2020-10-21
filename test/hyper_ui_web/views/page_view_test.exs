@@ -1,3 +1,3 @@
 defmodule RihannaUIWeb.PageViewTest do
-  use RihannaUIWeb.ConnCase, async: true
+  use RihannaUIWeb.ConnCase
 end

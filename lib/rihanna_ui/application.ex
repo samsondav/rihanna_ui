@@ -9,6 +9,7 @@ defmodule RihannaUI.Application do
     # Define workers and child supervisors to be supervised
     children = [
       {RihannaUI.Repo, [name: RihannaUI.Repo] ++ database_opts()},
+      {Phoenix.PubSub, [name: RihannaUI.PubSub, adapter: Phoenix.PubSub.PG2]},
       %{
         id: Rihanna.Job.Postgrex,
         start: {Postgrex, :start_link, [Keyword.put(database_opts(), :name, Rihanna.Job.Postgrex)]}

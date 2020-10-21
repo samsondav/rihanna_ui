@@ -1,5 +1,5 @@
 defmodule RihannaUIWeb.ErrorViewTest do
-  use RihannaUIWeb.ConnCase, async: true
+  use RihannaUIWeb.ConnCase
 
   # Bring render/3 and render_to_string/3 for testing custom views
   import Phoenix.View
