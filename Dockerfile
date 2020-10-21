@@ -1,5 +1,4 @@
-FROM elixir:1.6-slim
-MAINTAINER Sam Davies <sampdavies@gmail.com>
+FROM bitwalker/alpine-elixir-phoenix:latest as build
 
 RUN mix local.hex --force && \
     mix local.rebar --force && \
@@ -9,15 +8,9 @@ WORKDIR /app
 ENV MIX_ENV prod
 ENV PORT 80
 
-RUN apt-get -qq update
-RUN apt-get -y -q install curl gnupg
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
-RUN apt-get -y -q install nodejs
-RUN npm install -g brunch
-
 COPY . .
 
-RUN cd assets && brunch build --production
+RUN cd assets && npm install
 
 RUN mix deps.get
 RUN mix compile
