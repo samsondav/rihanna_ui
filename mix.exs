@@ -5,7 +5,7 @@ defmodule RihannaUI.Mixfile do
     [
       app: :rihanna_ui,
       version: "0.5.2",
-      elixir: "~> 1.4",
+      elixir: "~> 1.10",
       elixirc_paths: elixirc_paths(Mix.env),
       compilers: [:phoenix, :gettext] ++ Mix.compilers,
       start_permanent: Mix.env == :prod,
@@ -33,15 +33,15 @@ defmodule RihannaUI.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.3.2"},
-      {:phoenix_pubsub, "~> 1.0"},
-      {:phoenix_ecto, "~> 3.2"},
-      {:postgrex, ">= 0.0.0"},
-      {:phoenix_html, "~> 2.10"},
-      {:phoenix_live_reload, "~> 1.0", only: :dev},
-      {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"},
-      {:rihanna, ">= 0.0.0"}
+      {:phoenix, "~> 1.5.5"},
+      {:phoenix_pubsub, "~> 2.0"},
+      {:phoenix_ecto, "~> 4.2.1"},
+      {:postgrex, ">= 0.15.6"},
+      {:phoenix_html, "~> 2.13"},
+      {:phoenix_live_reload, "~> 1.2.4", only: :dev},
+      {:gettext, "~> 0.18.2"},
+      {:cowboy, "~> 2.7"},
+      {:rihanna, ">= 2.2.0"}
     ]
   end
 
