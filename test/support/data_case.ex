@@ -12,24 +12,28 @@ defmodule RihannaUI.DataCase do
   of the test unless the test case is marked as async.
   """
 
+  alias RihannaUI.{
+    DataCase,
+    Repo
+  }
   use ExUnit.CaseTemplate
 
   using do
     quote do
-      alias RihannaUI.Repo
+      alias Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import RihannaUI.DataCase
+      import DataCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(RihannaUI.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(RihannaUI.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Repo, {:shared, self()})
     end
 
     :ok

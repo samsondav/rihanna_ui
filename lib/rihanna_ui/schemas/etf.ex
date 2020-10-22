@@ -1,5 +1,6 @@
 defmodule RihannaUI.ETF do
   @behaviour Ecto.Type
+  @moduledoc false
 
   def type, do: :bytea
 

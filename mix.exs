@@ -44,7 +44,8 @@ defmodule RihannaUI.Mixfile do
       {:gettext, "~> 0.18.2"},
       {:plug_cowboy, "~> 2.0"},
       {:plug, "~> 1.7"},
-      {:rihanna, ">= 2.2.0"}
+      {:rihanna, ">= 2.2.0"},
+      {:credo, "~> 1.4", only: [:dev, :test], runtime: false}
     ]
   end
 

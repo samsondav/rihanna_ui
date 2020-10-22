@@ -1,15 +1,17 @@
 defmodule RihannaUI.Job do
+  @moduledoc false
+
   use Ecto.Schema
   require Ecto.Query, as: Query
 
-  schema Rihanna.Job.table() do
+  schema Rihanna.Job.table do
     field :term, RihannaUI.ETF
     field :enqueued_at, :utc_datetime
     field :failed_at, :utc_datetime
     field :fail_reason, :string
   end
 
-  def enqueued() do
+  def enqueued do
     Query.from(
       j in RihannaUI.Job,
       left_join: lock in "pg_locks",
@@ -22,7 +24,7 @@ defmodule RihannaUI.Job do
     |> RihannaUI.Repo.all()
   end
 
-  def in_progress() do
+  def in_progress do
     Query.from(
       j in RihannaUI.Job,
       join: lock in "pg_locks",
@@ -34,7 +36,7 @@ defmodule RihannaUI.Job do
 
   end
 
-  def failed() do
+  def failed do
     Query.from(
       j in RihannaUI.Job,
       where: not j.failed_at |> is_nil

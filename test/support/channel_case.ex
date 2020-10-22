@@ -12,7 +12,7 @@ defmodule RihannaUIWeb.ChannelCase do
   inside a transaction which is reset at the beginning
   of the test unless the test case is marked as async.
   """
-
+  alias RihannaUI.Repo
   use ExUnit.CaseTemplate
 
   using do
@@ -25,11 +25,10 @@ defmodule RihannaUIWeb.ChannelCase do
     end
   end
 
-
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(RihannaUI.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Repo)
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(RihannaUI.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Repo, {:shared, self()})
     end
     :ok
   end

@@ -1,4 +1,6 @@
 defmodule RihannaUIWeb.RenderingHelpers do
+  @moduledoc false
+
   def render_term({mod, fun, args}) do
     args_string = args
     |> Enum.map(&inspect/1)

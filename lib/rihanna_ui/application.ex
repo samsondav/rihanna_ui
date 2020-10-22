@@ -1,4 +1,6 @@
 defmodule RihannaUI.Application do
+  @moduledoc false
+
   use Application
 
   # See https://hexdocs.pm/elixir/Application.html
@@ -30,7 +32,7 @@ defmodule RihannaUI.Application do
     :ok
   end
 
-  defp database_opts() do
+  defp database_opts do
     Application.get_env(:rihanna_ui, RihannaUI.Repo)
   end
 

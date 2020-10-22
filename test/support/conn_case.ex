@@ -13,6 +13,12 @@ defmodule RihannaUIWeb.ConnCase do
   of the test unless the test case is marked as async.
   """
 
+  alias RihannaUIWeb.{
+    Endpoint,
+    Router.Helpers
+  }
+  alias RihannaUI.Repo
+
   use ExUnit.CaseTemplate
 
   using do
@@ -21,18 +27,17 @@ defmodule RihannaUIWeb.ConnCase do
       import Plug.Conn
       import Phoenix.ConnTest
 
-      import RihannaUIWeb.Router.Helpers
+      import Router.Helpers
 
       # The default endpoint for testing
-      @endpoint RihannaUIWeb.Endpoint
+      @endpoint Endpoint
     end
   end
 
-
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(RihannaUI.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Repo)
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(RihannaUI.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Repo, {:shared, self()})
     end
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
