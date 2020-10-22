@@ -34,7 +34,7 @@ jobs:
       - run: mkdir -p priv/repo/migrations
       - run: mix ecto.migrate
       - run: mix run priv/repo/seeds.exs
-      - run: mix credo --strict
+      - run: mix credo
       - run: mix format --check-formatted
 
   deploy:
