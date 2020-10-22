@@ -31,6 +31,7 @@ jobs:
       - run: mix local.rebar --force
       - run: mix deps.get
       - run: mix ecto.create
+      - run: mkdir -p priv/repo/migrations
       - run: mix ecto.migrate
       - run: mix ecto.seed
       - run: mix credo --strict
