@@ -59,4 +59,4 @@ config :phoenix, :stacktrace_depth, 20
 config :rihanna_ui, RihannaUI.Repo,
   adapter: Ecto.Adapters.Postgres,
   show_sensitive_data_on_connection_error: true,
-  url: System.get_env("DATABASE_URL", "postgres://localhost/violet_dev")
+  url: System.get_env("DATABASE_URL", "postgres://localhost/rihanna_ui_dev")
