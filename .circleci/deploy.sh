@@ -6,7 +6,7 @@ set -e
 
 SERVICE_NAME="rihanna"
 DOCKER_REGISTRY="004671295794.dkr.ecr.us-west-2.amazonaws.com"
-DOCKER_IMAGE="${DOCKER_REGISTRY}/${SERVICE_NAME}"
+DOCKER_IMAGE="${DOCKER_REGISTRY}/${SERVICE_NAME}_ui"
 
 if [[ "$CIRCLE_TAG" =~ ^release-.*$ ]]; then
   echo "Found release tag. Deploying to prod..."
