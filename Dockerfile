@@ -18,4 +18,4 @@ RUN mix phx.digest
 
 EXPOSE $PORT
 
-CMD ["mix", "phx.server"]
+CMD ["./bin/start"]
