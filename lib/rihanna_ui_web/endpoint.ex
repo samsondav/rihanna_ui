@@ -1,7 +1,7 @@
 defmodule RihannaUIWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :rihanna_ui
 
-  socket "/socket", RihannaUIWeb.UserSocket
+  socket "/socket", RihannaUIWeb.UserSocket, websocket: true
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -24,7 +24,7 @@ defmodule RihannaUIWeb.Endpoint do
   plug Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
     pass: ["*/*"],
-    json_decoder: Poison
+    json_decoder: Jason
 
   plug Plug.MethodOverride
   plug Plug.Head

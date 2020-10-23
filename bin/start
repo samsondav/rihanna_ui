@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# reconstruct DATABASE_URL
+if [[ -z "$DATABASE_URL" ]]
+then
+  export DATABASE_URL=postgres://$DATABASE_USERNAME:$DATABASE_PASSWORD@$DATABASE_HOST/$DATABASE_NAME
+  echo "database url: $DATABASE_URL"
+else
+  echo "DATABASE_URL is already set, skipping..."
+fi
+
+# environment configured, boot the app
+echo "starting app..."
+
+mix phx.server

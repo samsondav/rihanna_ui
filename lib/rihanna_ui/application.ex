@@ -1,4 +1,6 @@
 defmodule RihannaUI.Application do
+  @moduledoc false
+
   use Application
 
   # See https://hexdocs.pm/elixir/Application.html
@@ -9,9 +11,10 @@ defmodule RihannaUI.Application do
     # Define workers and child supervisors to be supervised
     children = [
       {RihannaUI.Repo, [name: RihannaUI.Repo] ++ database_opts()},
+      {Phoenix.PubSub, [name: RihannaUI.PubSub, adapter: Phoenix.PubSub.PG2]},
       %{
         id: Rihanna.Job.Postgrex,
-        start: {Postgrex, :start_link, [Keyword.put(database_opts(), :name, Rihanna.Job.Postgrex)]}
+        start: {Postgrex, :start_link, [Keyword.put(postgrex_config(), :name, Rihanna.Job.Postgrex)]}
       },
       supervisor(RihannaUIWeb.Endpoint, []),
     ]
@@ -29,13 +32,23 @@ defmodule RihannaUI.Application do
     :ok
   end
 
-  defp database_opts() do
+  defp database_opts do
+    Application.get_env(:rihanna_ui, RihannaUI.Repo)
+  end
+
+  defp postgrex_config do
+    uri =
+      database_opts()
+      |> Keyword.get(:url)
+      |> URI.parse
+
+    security = String.split(uri.userinfo, ":")
+
     [
-      username: System.get_env("DB_USERNAME") || "postgres",
-      password: System.get_env("DB_PASSWORD") || "postgres",
-      database: System.get_env("DB_DATABASE") || "rihanna_db",
-      hostname: System.get_env("DB_HOSTNAME") || "127.0.0.1",
-      port: System.get_env("DB_PORT") || 54321
+      hostname: uri.host,
+      database: String.replace(uri.path, "/", ""),
+      username: Enum.at(security, 0),
+      password: Enum.at(security, 1)
     ]
   end
 end

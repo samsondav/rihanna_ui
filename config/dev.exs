@@ -11,8 +11,15 @@ config :rihanna_ui, RihannaUIWeb.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
-                    cd: Path.expand("../assets", __DIR__)]]
+  watchers: [
+    node: [
+      "node_modules/webpack/bin/webpack.js",
+      "--mode",
+      "development",
+      "--watch-stdin",
+      cd: Path.expand("../assets", __DIR__)
+    ]
+  ]
 
 # ## SSL Support
 #
@@ -47,3 +54,9 @@ config :logger, :console, format: "[$level] $message\n"
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
+
+# Configure your database
+config :rihanna_ui, RihannaUI.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  show_sensitive_data_on_connection_error: true,
+  url: System.get_env("DATABASE_URL", "postgres://localhost/rihanna_ui_dev")

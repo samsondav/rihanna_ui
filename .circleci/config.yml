@@ -1,0 +1,80 @@
+# Elixir CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-elixir/ for more details
+version: 2
+jobs:
+  test:
+    docker:
+      # runner image
+      - image: circleci/elixir:1.10
+        environment:
+          DATABASE_URL: postgres://circleci:circleci@localhost/circleci
+          MIX_ENV: test
+
+      # service dependencies
+      - image: circleci/postgres:11.6-alpine-ram
+        environment:
+          POSTGRES_USER: circleci
+          POSTGRES_PASSWORD: circleci
+          POSTGRES_DB: circleci
+
+    steps:
+      - checkout
+
+      # ensure database image is available before continuing
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      # run tests
+      - run: mix local.hex --force
+      - run: mix local.rebar --force
+      - run: mix deps.get
+      - run: mix ecto.create
+      - run: mkdir -p priv/repo/migrations
+      - run: mix ecto.migrate
+      - run: mix run priv/repo/seeds.exs
+      - run: mix credo
+      - run: mix format --check-formatted
+
+  deploy:
+    docker:
+      - image: 004671295794.dkr.ecr.us-west-2.amazonaws.com/genesis:v1.0.7
+        # These env vars should be set on the CircleCi website, in the settings page for this build. They should be the
+        # access keys for an IAM machine user.
+        aws_auth:
+          aws_access_key_id: $AWS_ACCESS_KEY_ID
+          aws_secret_access_key: $AWS_SECRET_ACCESS_KEY
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      # Try to cache the Terraform providers: https://github.com/hashicorp/terraform/issues/16448
+      - restore_cache:
+          key: terraform-providers
+      - run: .circleci/deploy.sh
+      - save_cache:
+          key: terraform-providers
+          paths:
+            - ~/.terraform.d/plugin-cache
+
+workflows:
+  version: 2
+  test_build_deploy:
+    jobs:
+      - test:
+          # We have to explicitly tell CircleCi to run on all tags and branches, or tag commits/pushes will not trigger
+          # builds: https://circleci.com/docs/2.0/workflows/#git-tag-job-execution.
+          filters:
+            branches:
+              only: /.*/
+            tags:
+              only: /.*/
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only: /.*/
+            tags:
+              only: /.*/
