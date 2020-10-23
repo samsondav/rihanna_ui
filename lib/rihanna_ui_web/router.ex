@@ -16,7 +16,7 @@ defmodule RihannaUIWeb.Router do
   scope "/", RihannaUIWeb do
     pipe_through :browser # Use the default browser stack
 
-    # TODO
+    # TODO: https://github.com/BlinkerGit/rihanna_ui/issues/2
     # add /status endpoint or something similar
     # to act as the health check ping
     # only log things above info level, whatever level
