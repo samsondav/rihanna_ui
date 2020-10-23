@@ -16,6 +16,13 @@ defmodule RihannaUIWeb.Router do
   scope "/", RihannaUIWeb do
     pipe_through :browser # Use the default browser stack
 
+    # TODO
+    # add /status endpoint or something similar
+    # to act as the health check ping
+    # only log things above info level, whatever level
+    # to not see a million health checks in the logs.
+    # likely set to :debug
+
     get "/", PageController, :overview
     get "/enqueued", PageController, :enqueued
     get "/in_progress", PageController, :in_progress
