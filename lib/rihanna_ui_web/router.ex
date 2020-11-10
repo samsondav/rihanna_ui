@@ -16,6 +16,8 @@ defmodule RihannaUIWeb.Router do
   scope "/", RihannaUIWeb do
     pipe_through :browser # Use the default browser stack
 
+    get "/status", StatusController, :status
+
     get "/", PageController, :overview
     get "/enqueued", PageController, :enqueued
     get "/in_progress", PageController, :in_progress

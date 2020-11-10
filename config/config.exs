@@ -23,7 +23,8 @@ config :rihanna_ui, RihannaUIWeb.Endpoint,
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
-  metadata: [:user_id]
+  metadata: [:user_id],
+  level: :debug
 
 config :phoenix, :json_library, Jason
 
