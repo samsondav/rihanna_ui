@@ -9,10 +9,6 @@ defmodule RihannaUIWeb.PageController do
     render conn, "overview.html", enqueued: enqueued, in_progress: in_progress, failed: failed
   end
 
-  def status(conn, _params) do
-    text conn, "ok"
-  end
-
   def enqueued(conn, _params) do
     enqueued_jobs = RihannaUI.Job.enqueued()
 

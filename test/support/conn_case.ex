@@ -13,10 +13,7 @@ defmodule RihannaUIWeb.ConnCase do
   of the test unless the test case is marked as async.
   """
 
-  alias RihannaUIWeb.{
-    Endpoint,
-    Router.Helpers
-  }
+  alias RihannaUIWeb.Endpoint
   alias RihannaUI.Repo
 
   use ExUnit.CaseTemplate
@@ -26,8 +23,6 @@ defmodule RihannaUIWeb.ConnCase do
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
-
-      import Router.Helpers
 
       # The default endpoint for testing
       @endpoint Endpoint
